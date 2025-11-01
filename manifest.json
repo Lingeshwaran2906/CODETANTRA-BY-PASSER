@@ -1,0 +1,39 @@
+{
+  "manifest_version": 3,
+  "name": "CodeTantra Bypasser (rmkcet)",
+  "version": "7.0.0",
+  "description": "Enable right-click, copy and paste fallback on CodeTantra editors (rmkcet). Manual toggle via popup (starts OFF).",
+  "permissions": [
+    "storage",
+    "scripting",
+    "activeTab",
+    "tabs",
+    "clipboardRead"
+  ],
+  "host_permissions": [
+    "https://*.codetantra.com/*",
+    "https://*.code-tantra.in/*",
+    "https://rmkcet.codetantra.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://rmkcet.codetantra.com/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "all_frames": true,
+      "run_at": "document_start"
+    }
+  ],
+  "icons": {
+    "128": "icon128.png"
+  }
+}
